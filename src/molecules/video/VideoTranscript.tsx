@@ -8,18 +8,9 @@ import VideoSpeakers from './VideoSpeakers.tsx';
 
 const VideoTranscription: React.FC = React.memo((props) => {
 
-  //console.log(props)
-  //console.log("asodmasodasodasidasdbasdisa")
-
-  /*const {
-		videos:{currentVideo, sentences, setSentences, currentTime, setCurrentTime},
-	} = useContext(Ctx);
-*/
   const { currentVideoValue } = useContext(CtxVideoCurrent);
   const { currentVideoSentencesValue } = useContext(CtxVideoCurrentSentences);
 
-  //console.log(currentVideoSentencesValue)
-  
   const sentenceRef: any = useRef(null);
 
   const init = {
@@ -47,8 +38,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
 
     sessionStorage.setItem('countSpeakers', JSON.stringify(speakers.sort()));
   }
-
-
 
   useEffect(() => {
 
@@ -90,7 +79,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
             }
           })
 
-
           document.querySelector(`#sentence-${e.id}`)?.classList.add('sentence-active');
           //document.querySelector(`#sentence-${e.id}`).scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
         }else{
@@ -104,46 +92,35 @@ const VideoTranscription: React.FC = React.memo((props) => {
     });
   }
   
+  const searchTranscript = ({target}) => {
+    JSON.parse(sessionStorage.getItem('currentSentences'))?.sentences?.filter( j => {
+      if(j.text.includes(target?.value) && target?.value != ''){
+        document.querySelector(`#sentence-${j.id}`).classList.add('word-search');
+        document.querySelector(`#sentence-${j.id}`).scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
+        //console.log(`sentence-${j.id}`);
+        //console.log(j.id);
+        //console.log(j.text);
+        //document.querySelector
+        //word-search
+      }else{
+        if(document.querySelector(`#sentence-${j.id}`).classList.contains('word-search')){
+          document.querySelector(`#sentence-${j.id}`).classList.remove('word-search');
+        }
+      }
+    })
+  }
 
   const transcriptOnFocus = (id) => {
     const sentence = id.target.getAttribute('data-sentence-id');
     const filtrado = JSON.parse(sessionStorage.getItem('currentSentences'))?.sentences.filter( e => e.id == sentence );
-    //console.log(filtrado)
+
     props.videojsref.current.currentTime(Number(filtrado[0]?.start_time));
     id.target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
-
-    /*
-    if(filtrado){
-      dispatchTranscription({
-        type: 'currentSentenceTime',
-        payload:{
-          currentSpeaker: filtrado[0]?.speaker_id,
-          start_time: filtrado[0]?.start_time,
-          end_time: filtrado[0]?.end_time
-        }
-      });
-    }*/
-    //console.log(sentence);
-    /*if(
-      Number(sessionStorage.getItem('currentTime')) >= Number(transcription?.start_time) &&
-      Number(sessionStorage.getItem('currentTime')) <= Number(transcription?.end_time)
-    ){
-     // console.log(sentence)
-    }*/
-
-
-   
-    //sentenceRef.current = document.querySelector(`#sentence-${id}`);
-    //document.querySelector('#sentence-1142').style.color = 'purple'
-
-    //console.log(sentenceRef.current)
-    // document.querySelector('#sentence-1720').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
-
   }
 
   return (
     <>
-      <input type="text" className='form-control mb-4' placeholder='Buscar en la transcripción...' />
+      <input onInput={searchTranscript} type="text" className='form-control mb-4' placeholder='Buscar en la transcripción...' />
 
       <div className='px-1'>
         <VideoSpeakers speakersCount={sessionStorage.getItem('countSpeakers') && JSON.parse(sessionStorage.getItem('countSpeakers'))}/>
