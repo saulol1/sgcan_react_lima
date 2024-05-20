@@ -78,7 +78,19 @@ const VideoTranscription: React.FC = React.memo((props) => {
           Number(sessionStorage.getItem('currentTime')) >= Number(e.start_time)
           && Number(sessionStorage.getItem('currentTime')) <= Number(e.end_time)
         ){
-          console.log(e.id)
+          sessionStorage.setItem('currentSpeakerId', e.speaker_id);
+          document.querySelectorAll('.speaker').forEach(j => {
+
+            if(j.getAttribute('data-speaker-id') == `${e.speaker_id}`){
+              j.classList.add('speaker-active')
+            }else{
+              if(j?.classList.contains('speaker-active')){
+                j?.classList.remove('speaker-active');
+              }
+            }
+          })
+
+
           document.querySelector(`#sentence-${e.id}`)?.classList.add('sentence-active');
           //document.querySelector(`#sentence-${e.id}`).scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
         }else{

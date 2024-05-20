@@ -10,6 +10,7 @@ function App() {
   sessionStorage.setItem('currentVideo', '');
   sessionStorage.setItem('currentSentences', '');
   sessionStorage.setItem('countSpeakers', '');
+  sessionStorage.setItem('currentSpeakerId', '0');
 
   return (
     <CtxVideoCurrentContext>

@@ -1,27 +1,29 @@
 import React from 'react'
 import Speaker from '../../atoms/Speaker.tsx';
 
-const VideoSpeakers = ({speakersCount}) => {
+const colors: string = [
+  'purple',
+  'red',
+  'blue',
+  'green',
+  'pink',
+  'darkpurple',
+  'darkorange',
+  'greenyellow',
+  'palevioletred',
+]
 
-/*
-  speakersCount?.forEach(e => {
-    console.log(e)
-  });*/
+const VideoSpeakers = ({speakersCount}) => {
 
   const SpeakerList: React.FC = () => {
     return (
       speakersCount && 
         speakersCount?.map( e => (
-          <Speaker active={false} id={e} color='red'/>
+          <Speaker active={false} id={e} color={colors[e]}/>
       ) )
     )
 
   }
-  //<Speaker active={false} id={1} color='red'/>
-
-  console.log(typeof speakersCount)
-  console.log(speakersCount)
-//  <SpeakerList/>
 
   return (
     <div className='d-flex gap-1'>

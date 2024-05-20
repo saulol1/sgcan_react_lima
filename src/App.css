@@ -16,10 +16,8 @@
   background-color: var(--bgColorSentence);
 }
 
-.speaker{
-  
-}
-
 .speaker-active{
-
+  box-shadow: 0px 0px 5px purple;
+  transform: scale(1.1);
+  transition: all ease-in-out;
 }
