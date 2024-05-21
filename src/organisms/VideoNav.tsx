@@ -8,7 +8,6 @@ const VideoNav: React.FC = () => {
 	function handleVideoTab(pos: number, e) {
 		
 		document.querySelectorAll('.menu-item').forEach(j => {
-			console.log(j.classList)
 			if(j.classList.contains('active')) { 
 				j.classList.remove('active'); 
 			};

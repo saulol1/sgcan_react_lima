@@ -20,7 +20,7 @@ const VideoTranscription: React.FC = React.memo((props) => {
       allSpeakers.push(speaker_id)
     });
 
-    const speakers = obtenerValoresUnicos(allSpeakers);
+    const speakers: object = obtenerValoresUnicos(allSpeakers);
 
     sessionStorage.setItem('countSpeakers', JSON.stringify(speakers.sort()));
   }

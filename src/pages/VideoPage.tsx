@@ -2,8 +2,8 @@ import React, { useContext, useRef } from 'react';
 import Layout from '../templates/Layout.tsx';
 import VideoNav from '../organisms/VideoNav.tsx';
 import VideoJS from '../organisms/video/VideoCurrent.tsx';
-import CtxVideoNavProvider from '../models/context/videoNavContext.tsx';
 import VideoPanelWrapper from '../organisms/video/VideoPanelWrapper.tsx';
+import CtxVideoNavProvider from '../models/context/videoNavContext.tsx';
 import { CtxVideoCurrent } from '../models/context/videoCurrentContext.tsx';
 
 

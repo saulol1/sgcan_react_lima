@@ -4,8 +4,6 @@ import CtxVideoCurrentSentencesContext from '../../models/context/videoCurrentSe
 
 const VideoTranscriptionWrapper = ({video_url, videojsref}) => {
 
-  console.log(video_url)
-
   const MemoCtxVideoCurrentSentences = React.memo(CtxVideoCurrentSentencesContext);
   
   return (

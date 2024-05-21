@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import VideoPanel from './VideoPanel.tsx';
 import { CtxVideoNav } from '../../models/context/videoNavContext.tsx';
 
-const VideoPanelWrapper = ({videojsref}) => {
+const VideoPanelWrapper: React.FC = ({videojsref}) => {
 
   const { videoNavbarOpt } = useContext(CtxVideoNav);
 

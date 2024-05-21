@@ -1,14 +1,11 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { getAllVideos } from '../../controllers/video/VideoController.tsx';
-import { Ctx } from '../../models/context/mainContext.tsx';
-import { CtxVideoNav } from '../../models/context/videoNavContext.tsx';
 import { CtxVideoList } from '../../models/context/videoListContext.tsx';
 import { CtxVideoCurrent } from '../../models/context/videoCurrentContext.tsx';
 
 const VideoList: React.FC = (props) => {
 
 	const { currentVideoValue } = useContext(CtxVideoCurrent);
-
 	const { listVideos } = useContext(CtxVideoList);
 
 	const handleClickVideo = (id) => {
@@ -20,7 +17,7 @@ const VideoList: React.FC = (props) => {
 	const videoCallback = useCallback(async () => {
     if( listVideos?.videoList == null ) {
 			if(!sessionStorage.getItem('list_video_loaded') || sessionStorage.getItem('list_video_loaded') == '0'){
-				const result = await getAllVideos();
+				const result: object = await getAllVideos();
 				listVideos?.setVideoList(result);
 				sessionStorage.setItem('list_videos', JSON.stringify(result));
 				sessionStorage.setItem('list_video_loaded', '1');

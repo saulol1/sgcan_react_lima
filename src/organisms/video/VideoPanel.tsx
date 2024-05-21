@@ -10,8 +10,6 @@ const VideoPanel: React.FC = (props) => {
 
 	const { currentVideoValue } = useContext(CtxVideoCurrent);
 
-	console.log("Video panel montado")
-
 	const {optPanelNav, videojsref} = props;
 
 	let component = <div></div>;
@@ -31,7 +29,6 @@ const VideoPanel: React.FC = (props) => {
 		default:
 			break;
 	}
-
 
 	return component;
 }
