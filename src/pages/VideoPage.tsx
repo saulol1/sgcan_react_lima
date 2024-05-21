@@ -49,25 +49,11 @@ const VideoPage: React.FC = () => {
 	const handlePlayerReady = (player) => {
 
 		playerRef.current = player;
-		// Ir a este segundo
-		//player.currentTime(20);
 
 		player.on('timeupdate', () => {
-			// Obtener el tiempo actual en segundos
-			const currentTime = player.currentTime();
-
-			// Convertir el tiempo actual a minutos y segundos
-			const minutes = Math.floor(currentTime / 60);
-			const seconds = Math.floor(currentTime % 60);
-
 			sessionStorage.setItem('currentTime', player.currentTime());
-			//console.log(sessionStorage.getItem('currentTime'));
-			
-
-			//console.log('Tiempo actual:', minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
 		});
 
-		// You can handle player events here, for example:
 		player.on('waiting', () => {
 			videojs.log('player is waiting');
 		});

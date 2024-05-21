@@ -1,3 +1,14 @@
+:root{
+    --linkColor: goldenrod;
+}
+
 body{
     background-color: #eee!important;
+}
+
+.active{
+    background-color: transparent!important;
+    border: none!important;
+    color: var(--linkColor)!important;
+    text-decoration: underline!important;
 }

@@ -7,12 +7,6 @@ import { CtxVideoCurrent } from '../../models/context/videoCurrentContext.tsx';
 
 const VideoList: React.FC = (props) => {
 
-	console.log("Video list montado")
-
-	/*const {
-		videos:{videoList, setVideoList, setCurrentVideo},
-	} = useContext(Ctx);
-*/
 	const { currentVideoValue } = useContext(CtxVideoCurrent);
 
 	//console.log(currentVideoValue)
@@ -47,10 +41,10 @@ const VideoList: React.FC = (props) => {
 				{ 
 				sessionStorage?.getItem('list_videos') &&
 				( 
-				<ul>
+				<ul className='list-video'>
 					{
 						JSON.parse(sessionStorage?.getItem('list_videos')).map(e => (
-							<li onClick={ () => handleClickVideo(e.id) } id={`title-${e.id}`}>{e.title}</li>
+							<li className='mb-3' onClick={ () => handleClickVideo(e.id) } id={`title-${e.id}`}>{e.title}</li>
 						))
 					}
 				</ul>
@@ -61,6 +55,5 @@ const VideoList: React.FC = (props) => {
 };
 
 export default React.memo(VideoList, (prevProps: Readonly, nextProps: Readonly) => {
-	console.log("APASDNASODNASOSNDS")
 	return true;
 });

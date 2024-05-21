@@ -2,6 +2,31 @@
   --bgColorSentence: rgba(238, 238, 238, 0.5);
   --textColorSentence: purple;
   --bgWordSearch: rgba(158, 158, 158, 0.5);
+  --linkColor: goldenrod;
+}
+
+.menu-item{
+  border: none!important;
+  font-size: .85rem;
+}
+
+.list-video{
+  list-style: decimal;
+  font-size: .9rem;
+}
+
+.list-video li:hover{
+  text-decoration: underline;
+  color: goldenrod;
+  cursor: pointer;
+}
+
+.search-transcript{
+  font-size: .8rem!important;
+}
+
+.sentence{
+  font-size: .9rem;
 }
 
 .sentence{

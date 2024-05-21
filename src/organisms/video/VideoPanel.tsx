@@ -37,13 +37,5 @@ const VideoPanel: React.FC = (props) => {
 	return component;
 }
 
-//export default VideoPanel;
 
-export default React.memo(VideoPanel, (prevProps: Readonly, nextProps: Readonly) => 
-	{ 
-		console.log("AAAAAAAAAAAA")
-		//if(prevProps.currentVideo == nextProps.currentVideo){
-		//	return true;
-		//}
-	}
-);
+export default React.memo(VideoPanel);

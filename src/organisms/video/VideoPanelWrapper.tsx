@@ -1,18 +1,14 @@
 import React, { useContext } from 'react';
 import VideoPanel from './VideoPanel.tsx';
-import CtxVideoNavProvider, { CtxVideoNav } from '../../models/context/videoNavContext.tsx';
-//import CtxVideoCurrentContext from '../../models/context/videoCurrentContext.tsx';
+import { CtxVideoNav } from '../../models/context/videoNavContext.tsx';
 
 const VideoPanelWrapper = ({videojsref}) => {
 
   const { videoNavbarOpt } = useContext(CtxVideoNav);
 
   return (
-    //<CtxVideoCurrentContext>
-      <VideoPanel videojsref={videojsref} optPanelNav={videoNavbarOpt.videoNavBarPosition}/>
-    //</CtxVideoCurrentContext>
+    <VideoPanel videojsref={videojsref} optPanelNav={videoNavbarOpt.videoNavBarPosition}/>
   )
 }
 
-
-export default React.memo(VideoPanelWrapper)
+export default React.memo(VideoPanelWrapper);

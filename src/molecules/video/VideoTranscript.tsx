@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
-import { Ctx } from '../../models/context/mainContext.tsx';
 import { getTranscriptById } from '../../controllers/video/VideoController.tsx';
-import VideoTranscriptsReducer from '../../controllers/video/reducers/VideoTranscriptsReducer.tsx';
 import { CtxVideoCurrent } from '../../models/context/videoCurrentContext.tsx';
 import {CtxVideoCurrentSentences} from '../../models/context/videoCurrentSentencesContext.tsx';
 import VideoSpeakers from './VideoSpeakers.tsx';
@@ -12,16 +10,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
   const { currentVideoSentencesValue } = useContext(CtxVideoCurrentSentences);
 
   const sentenceRef: any = useRef(null);
-
-  const init = {
-    currentSpeaker: '0',
-    text: '0',
-    start_time: '0',
-    end_time: '0',
-  }
-
-  // ELIMINAR REDUCER
-  const [transcription, dispatchTranscription] = useReducer(VideoTranscriptsReducer, init);
 
   const allSpeakers: number = [];
 
@@ -80,7 +68,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
           })
 
           document.querySelector(`#sentence-${e.id}`)?.classList.add('sentence-active');
-          //document.querySelector(`#sentence-${e.id}`).scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
         }else{
           if(document.querySelector(`#sentence-${e.id}`)?.classList.contains('sentence-active')){
             document.querySelector(`#sentence-${e.id}`)?.classList.remove('sentence-active');
@@ -97,11 +84,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
       if(j.text.includes(target?.value) && target?.value != ''){
         document.querySelector(`#sentence-${j.id}`).classList.add('word-search');
         document.querySelector(`#sentence-${j.id}`).scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
-        //console.log(`sentence-${j.id}`);
-        //console.log(j.id);
-        //console.log(j.text);
-        //document.querySelector
-        //word-search
       }else{
         if(document.querySelector(`#sentence-${j.id}`).classList.contains('word-search')){
           document.querySelector(`#sentence-${j.id}`).classList.remove('word-search');
@@ -120,7 +102,7 @@ const VideoTranscription: React.FC = React.memo((props) => {
 
   return (
     <>
-      <input onInput={searchTranscript} type="text" className='form-control mb-4' placeholder='Buscar en la transcripción...' />
+      <input onInput={searchTranscript} type="text" className='search-transcript form-control mb-4' placeholder='Buscar en la transcripción...' />
 
       <div className='px-1'>
         <VideoSpeakers speakersCount={sessionStorage.getItem('countSpeakers') && JSON.parse(sessionStorage.getItem('countSpeakers'))}/>
@@ -128,10 +110,8 @@ const VideoTranscription: React.FC = React.memo((props) => {
 
       <div className='overflow-y-scroll py-3 my-4 px-1' style={{maxHeight:'50vh'}}>
       {
-          //currentVideoValue?.sentences && 
           sessionStorage.getItem('currentSentences') && 
           JSON.parse(sessionStorage.getItem('currentSentences'))?.sentences?.map( e => (
-          //currentVideoValue?.sentences?.sentences?.map( e => (
             <p onClick={transcriptOnFocus} className='sentence' data-sentence-id={e?.id} id={`sentence-${e?.id}`}>{e?.text}</p>
           ))
         }
