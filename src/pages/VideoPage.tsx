@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import Layout from '../templates/Layout.tsx';
 import VideoNav from '../organisms/VideoNav.tsx';
 import VideoJS from '../organisms/video/VideoCurrent.tsx';

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useRef } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { CtxVideoNav } from '../models/context/videoNavContext.tsx';
 
 const VideoNav: React.FC = () => {

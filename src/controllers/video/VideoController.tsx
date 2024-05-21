@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function getAllVideos(): object {
 	try {
-		const response: object = await axios.get('http://127.0.0.1:8000/api/transcripts/');
+		const response: object = await axios.get(`${process.env.REACT_APP_API_URL}/transcripts/`);
 		const transcripts = response?.data?.transcripts;
 		return transcripts;
 	} catch (error) {
@@ -12,7 +12,7 @@ async function getAllVideos(): object {
 
 async function getTranscriptById(id: number): object{
 	try {
-		const response: object = await axios.get(`http://127.0.0.1:8000/api/transcripts/${id}/?include[]=sentences.*`);
+		const response: object = await axios.get(`${process.env.REACT_APP_API_URL}/transcripts/${id}/?include[]=sentences.*`);
 		const sentences = response?.data?.sentences;
 		const sentencesId = response?.data?.transcript.sentences;
 		return {sentences, sentencesId};
