@@ -68,20 +68,20 @@ const VideoPage: React.FC = () => {
 		<div>
 			<Layout>
 				<section className='container-fluid py-3'>
-					<div className='row'>
-						<div className='col-7 ps-0'>
+					<div className='row d-md-flex d-block'>
+						<div className='col-md-7 ps-0 pe-0 pe-md-2'>
 							<div className='rounded bg-white p-3'>
 								{ <VideoJS options={videoJsOptions} onReady={handlePlayerReady} /> }
 							</div>
-							<header className='p-3 mt-3 bg-white rounded'>
+							<header className='p-3 my-3 bg-white rounded'>
 								{ <h1 className='fs-5'>{ currentVideoValue?.currentVideo && currentVideoValue?.currentVideo[0]?.title }</h1>  }
 								{ <p style={{fontSize: '.9rem'}}>{ currentVideoValue?.currentVideo && currentVideoDate }</p> }
 							</header>
 						</div>
-						<div className='bg-white rounded col-5 py-4 overflow-hidden' style={{maxHeight: '100vh'}}>
-							<div className='row'>
+						<div className='bg-white rounded col-md-5 py-4 overflow-hidden' style={{maxHeight: '100vh'}}>
+							<div className='d-flex flex-xl-row flex-column-reverse'>
 							<MemoCtxVideoNavProvider>
-								<div className='col-8'>
+								<div className='col-xl-8'>
 									<VideoPanelWrapper videojsref={playerRef}/>
 								</div>
 								<VideoNav />

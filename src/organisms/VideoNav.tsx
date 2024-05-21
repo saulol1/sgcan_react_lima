@@ -5,8 +5,6 @@ const VideoNav: React.FC = () => {
 
 	const { videoNavbarOpt } = useContext(CtxVideoNav);
 
-	const ref = useRef(null);
-	//console.log('render nav')
 	function handleVideoTab(pos: number, e) {
 		
 		document.querySelectorAll('.menu-item').forEach(j => {
@@ -21,16 +19,14 @@ const VideoNav: React.FC = () => {
 
 	useCallback(handleVideoTab, [videoNavbarOpt.videoNavBarPosition]);
 
-	// NOTA SL: MODULAR EL MENU
 	return (
-		<div className='col-4 list-group'>
-			<ul className=''>
-				<button onClick={(e) => handleVideoTab(0, e)} className='menu-item list-group-item list-group-item-action active'>Videos</button>
-				<button onClick={(e) => handleVideoTab(1, e)} className='menu-item list-group-item list-group-item-action'>Transcripción</button>
+		<div className='col-xl-4 list-group mb-xl-0 mb-4'>
+			<ul className='d-flex d-xl-block d-xl-flex-column'>
+				<button onClick={(e) => handleVideoTab(0, e)} className='menu-item border-start mb-2 list-group-item list-group-item-action active'>Videos</button>
+				<button onClick={(e) => handleVideoTab(1, e)} className='menu-item border-start mb-2 list-group-item list-group-item-action'>Transcripción</button>
 			</ul>
 		</div>
 	)
 }
 
-//export default React.memo(VideoNav);
 export default VideoNav;

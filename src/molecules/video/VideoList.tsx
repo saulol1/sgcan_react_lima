@@ -38,7 +38,8 @@ const VideoList: React.FC = (props) => {
 
 	return (
 		<div>
-				{ 
+			<h2 style={{ color:'goldenrod' }} className='fw-normal fs-5 ms-3 mb-4 text-decoration-underline'>Videos</h2>
+			{ 
 				sessionStorage?.getItem('list_videos') &&
 				( 
 				<ul className='list-video'>

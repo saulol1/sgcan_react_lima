@@ -5,8 +5,6 @@ const iconWH: number = [20, 20];
 
 const Header: React.FC = () => {
 
-  //console.log("Header render");
-
   useCallback(UserOnline, []);
 
   return (

@@ -108,11 +108,11 @@ const VideoTranscription: React.FC = React.memo((props) => {
         <VideoSpeakers speakersCount={sessionStorage.getItem('countSpeakers') && JSON.parse(sessionStorage.getItem('countSpeakers'))}/>
       </div>
 
-      <div className='overflow-y-scroll py-3 my-4 px-1' style={{maxHeight:'50vh'}}>
+      <div className='overflow-y-scroll py-3 my-4 px-1' style={{maxHeight:'45vh'}}>
       {
           sessionStorage.getItem('currentSentences') && 
           JSON.parse(sessionStorage.getItem('currentSentences'))?.sentences?.map( e => (
-            <p onClick={transcriptOnFocus} className='sentence' data-sentence-id={e?.id} id={`sentence-${e?.id}`}>{e?.text}</p>
+            <p onClick={transcriptOnFocus} className='sentence mb-2' data-sentence-id={e?.id} id={`sentence-${e?.id}`}>{e?.text}</p>
           ))
         }
       </div>
