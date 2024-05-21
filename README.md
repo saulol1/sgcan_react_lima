@@ -18,4 +18,4 @@
 - Los contextos se encuentran en la carpeta `models/context`.
 - Las peticiones hacia la api se manejan por Axios en la carpeta `controllers/video`.
 - Los componentes que es encuentran dentro de las carpetas `video` hacen referencia a los componentes directos de la lógica de la aplicación.
-- Tecnologías utilizadas: ReactJS, TypeScript, BootStrap, Axio y VideoJS.
+- Tecnologías utilizadas: ReactJS, TypeScript, BootStrap, Axios y VideoJS.
