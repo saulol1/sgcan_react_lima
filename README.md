@@ -4,7 +4,7 @@
 
 ## Instalación
 
-- Clonar el repositorio: `git clone https://github.com/saulol1/sgcan_react_lima.git`
+- Clonar el repositorio: `git clone https://github.com/saulol1/sgcan_react_lima.git frontend-react`
 
 - Ejecutar el comando `npm install` para instalar las dependencias necesarias.
 
