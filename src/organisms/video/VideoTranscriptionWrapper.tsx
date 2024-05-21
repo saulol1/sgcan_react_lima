@@ -1,6 +1,5 @@
 import React from 'react';
 import VideoTranscription from '../../molecules/video/VideoTranscript.tsx';
-import { CtxVideoCurrent } from '../../models/context/videoCurrentContext.tsx';
 import CtxVideoCurrentSentencesContext from '../../models/context/videoCurrentSentencesContext.tsx';
 
 const VideoTranscriptionWrapper = ({video_url, videojsref}) => {
@@ -16,7 +15,4 @@ const VideoTranscriptionWrapper = ({video_url, videojsref}) => {
   )
 }
 
-export default React.memo(VideoTranscriptionWrapper, (prevProps: Readonly, nextProps: Readonly)  => {
-  console.log("AWDASODASODASMOASJDPASDASPDWA")
-
-});
+export default React.memo(VideoTranscriptionWrapper);

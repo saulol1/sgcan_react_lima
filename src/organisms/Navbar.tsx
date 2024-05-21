@@ -14,8 +14,6 @@ const CreateFakeListItem: React.FC = () => {
 
 const Navbar: React.FC = () => {
 
- // console.log("Navbar montado");
-
   return (
     <nav className=''>
       <ul className='list-group'>

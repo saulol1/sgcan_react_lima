@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import VideoList from '../../molecules/video/VideoList.tsx';
-import VideoTranscription from '../../molecules/video/VideoTranscript.tsx';
-import CtxVideoListProvider, { CtxVideoList } from '../../models/context/videoListContext.tsx';
+import CtxVideoListProvider from '../../models/context/videoListContext.tsx';
 import VideoTranscriptionWrapper from './VideoTranscriptionWrapper.tsx';
 import { CtxVideoCurrent } from '../../models/context/videoCurrentContext.tsx';
 

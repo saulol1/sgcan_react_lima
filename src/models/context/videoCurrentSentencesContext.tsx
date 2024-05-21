@@ -11,8 +11,6 @@ const CtxVideoCurrentSentencesContext: React.FC = ({children}) => {
   const contextValue = useMemo(() => { return {currentVideoSentencesValue} }, 
   [sentences, setSentences]);
 
-    //, currentTime, setCurrentTime, sentences, setSentences
-
   return (
     <CtxVideoCurrentSentences.Provider value={contextValue}>
       {children}

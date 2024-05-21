@@ -4,8 +4,6 @@ import 'video.js/dist/video-js.css';
 
 const VideoJS: React.FC = React.memo((props) => {
 
- //console.log('VIDEOJS MONTADO')
-
   const videoRef = useRef(null);
   const playerRef = useRef(null);
   const {options, onReady} = props;

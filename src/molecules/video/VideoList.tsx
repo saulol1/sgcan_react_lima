@@ -9,16 +9,12 @@ const VideoList: React.FC = (props) => {
 
 	const { currentVideoValue } = useContext(CtxVideoCurrent);
 
-	//console.log(currentVideoValue)
-
 	const { listVideos } = useContext(CtxVideoList);
 
 	const handleClickVideo = (id) => {
-		//const videoFilter = listVideos?.videoList.filter( e  => e.id == id);
 		const videoFilter = JSON.parse(sessionStorage?.getItem('list_videos')).filter( e  => e.id == id);
 		sessionStorage.setItem('currentVideo',JSON.stringify(videoFilter));
 		currentVideoValue.setCurrentVideo(videoFilter);
-	//	setCurrentVideo(videoFilter);
 	}
 
 	const videoCallback = useCallback(async () => {

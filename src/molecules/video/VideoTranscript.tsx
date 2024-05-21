@@ -9,8 +9,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
   const { currentVideoValue } = useContext(CtxVideoCurrent);
   const { currentVideoSentencesValue } = useContext(CtxVideoCurrentSentences);
 
-  const sentenceRef: any = useRef(null);
-
   const allSpeakers: number = [];
 
   const obtenerValoresUnicos: object = (array) => {
@@ -118,7 +116,6 @@ const VideoTranscription: React.FC = React.memo((props) => {
       </div>
     </>
   )
-}, (prevProps: Readonly, nextProps: Readonly) => {
 });
 
 export default VideoTranscription;

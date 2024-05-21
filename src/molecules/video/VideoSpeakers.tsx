@@ -22,18 +22,11 @@ const VideoSpeakers = ({speakersCount}) => {
           <Speaker active={false} id={e} color={colors[e]}/>
       ) )
     )
-
   }
 
   return (
     <div className='d-flex gap-1'>
       <SpeakerList/>
-      {/*
-        speakersCount && 
-        speakersCount?.map( e => (
-          <Speaker active={false} id={e} color='red'/>
-        ) )
-      */}
     </div>
   )
 }

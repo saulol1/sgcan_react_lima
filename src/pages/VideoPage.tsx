@@ -1,31 +1,16 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import Layout from '../templates/Layout.tsx';
 import VideoNav from '../organisms/VideoNav.tsx';
-import {Ctx} from '../models/context/mainContext.tsx';
-import VideoPanel from '../organisms/video/VideoPanel.tsx';
 import VideoJS from '../organisms/video/VideoCurrent.tsx';
-
-import CtxVideoNavProvider, { CtxVideoNav } from '../models/context/videoNavContext.tsx';
-import CtxVideoListProvider, { CtxVideoList } from '../models/context/videoListContext.tsx';
+import CtxVideoNavProvider from '../models/context/videoNavContext.tsx';
 import VideoPanelWrapper from '../organisms/video/VideoPanelWrapper.tsx';
 import { CtxVideoCurrent } from '../models/context/videoCurrentContext.tsx';
 
 
 const VideoPage: React.FC = () => {
 
-	//const {
-	//	videoNavbarOpt: { videoNavBarPosition },
-	//	videoNavbarOpt
-		//videos: { currentVideo, currentTime, setCurrentTime },
-	//} = useContext(CtxVideoNav);
-
 	const MemoCtxVideoNavProvider = React.memo(CtxVideoNavProvider);
 	const { currentVideoValue } = useContext(CtxVideoCurrent);
-	//const { listVideos } = useContext(CtxVideoList);
-
-	//console.log(listVideos)
-
-	//console.log(videoNavbarOpt.videoNavBarPosition)
 
 	let currentVideoDate: string;
 
